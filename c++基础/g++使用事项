@@ -1,0 +1,6 @@
+1. 编译多个文件（包含头文件）。先写main.cpp，再罗列其余.cpp文件即可。
+g++ main.cpp other.cpp etc.cpp -o main
+	
+
+2.编译c++11程序
+g++ -std=c++11 main.cpp -o main

@@ -1,0 +1,33 @@
+
+
+First, make an ifstream:
+
+#include <fstream>
+std::ifstream infile("thefile.txt");
+
+The two standard methods are:
+
+    Assume that every line consists of two numbers and read token by token:
+
+    int a, b;
+    while (infile >> a >> b)
+    {
+        // process pair (a,b)
+    }
+
+    Line-based parsing, using string streams:
+
+    #include <sstream>
+    #include <string>
+
+    std::string line;
+    while (std::getline(infile, line))
+    {
+        std::istringstream iss(line);
+        int a, b;
+        if (!(iss >> a >> b)) { break; } // error
+
+        // process pair (a,b)
+    }
+
+You shouldn't mix (1) and (2), since the token-based parsing doesn't gobble up newlines, so you may end up with spurious empty lines if you use getline() after token-based extraction got you to the end of a line already.

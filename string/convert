@@ -1,0 +1,22 @@
+string -> int
+	std::stoi( str )
+
+string -> double
+	std::stod( str )
+
+string -> char*
+	e.g.
+	string s = "abc";
+	const char* a = s.c_str();//solution 1
+	char *cstr = &s[0u];//solution 2
+
+int / long long / double -> string
+	e.g.
+	double a = 12.3;
+	string s = to_string(a);
+
+
+char array -> string
+	e.g.
+	char a[] = "abc";
+	string s(a);
