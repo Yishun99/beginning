@@ -59,3 +59,16 @@ int main()
 
     return 0;
 }
+
+
+/*LA 3135*/
+struct Item {
+    int QNum, Period, Time;
+
+    bool operator < (const Item& a) const {
+        return Time > a.Time || (Time == a.Time && QNum > a.QNum);
+    }
+}
+
+priority_queue<Item> pq;
+
